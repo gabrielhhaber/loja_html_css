@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tela de login demonstrativa da LapStore. Não envia nem armazena dados.">
+    <meta name="color-scheme" content="dark">
+    <title>Entrar | LapStore</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="LapStore, página inicial">
+                <span class="brand-mark" aria-hidden="true">L</span>
+                <span class="brand-name">LapStore</span>
+            </a>
+            <nav class="main-nav" aria-label="Navegação principal">
+                <ul>
+                    <li><a href="index.html">Notebooks</a></li>
+                    <li><a href="login.html" aria-current="page">Entrar</a></li>
+                    <li><a class="nav-highlight" href="cadastro.html">Criar conta</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main id="conteudo-principal" class="auth-layout container" tabindex="-1">
+        <section class="auth-intro" aria-labelledby="titulo-principal">
+            <p class="eyebrow">Bem-vindo à LapStore</p>
+            <h1 id="titulo-principal">Entre na sua conta.</h1>
+            <p>Esta tela demonstra um formulário acessível. Ela não autentica ninguém: ao enviar, você volta à vitrine de notebooks.</p>
+        </section>
+        <section class="auth-card" aria-labelledby="titulo-formulario">
+            <h2 id="titulo-formulario">Acessar conta</h2>
+            <p class="form-instructions field-help" id="instrucoes-login">Campos marcados com asterisco são obrigatórios.</p>
+            <p class="prototype-alert"><strong>Modo protótipo:</strong> nenhum dado é salvo e nenhuma conta é criada. Use apenas dados fictícios.</p>
+            <form class="auth-form" action="index.html" method="get" aria-label="Acessar conta" aria-describedby="instrucoes-login">
+                <div class="form-field">
+                    <label for="email-login">E-mail <span aria-hidden="true">*</span></label>
+                    <input id="email-login" type="email" autocomplete="username" required aria-describedby="email-login-ajuda">
+                    <p class="field-help" id="email-login-ajuda">Exemplo de formato: nome@dominio.com.</p>
+                </div>
+                <div class="form-field">
+                    <label for="senha-login">Senha <span aria-hidden="true">*</span></label>
+                    <input id="senha-login" type="password" autocomplete="current-password" required aria-describedby="senha-login-ajuda">
+                    <p class="field-help" id="senha-login-ajuda">Não existe autenticação nesta página. Não use uma senha real.</p>
+                </div>
+                <button class="button button-primary" type="submit">Entrar</button>
+            </form>
+            <p class="auth-switch">Ainda não tem conta? <a href="cadastro.html">Ir para a página de cadastro</a>.</p>
+            <p class="auth-switch">Quer voltar aos produtos? <a href="index.html">Ver os notebooks da LapStore</a>.</p>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-meta">
+                <p><strong>LapStore</strong> — protótipo acadêmico apenas com HTML e CSS.</p>
+                <p>Não informe dados ou credenciais verdadeiras.</p>
+                <p><a class="footer-repo" href="https://github.com/gabrielhhaber/loja_html_css">Repositório da LapStore no GitHub</a></p>
+                <p class="creator-credit">Desenvolvido por Arthur Santos Lopes e Gabriel Heineck Haberkamp</p>
+            </div>
+            <a href="#conteudo-principal">Voltar ao conteúdo principal</a>
+        </div>
+    </footer>
+</body>
+</html>
