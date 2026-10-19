@@ -1,0 +1,217 @@
+/* Login - Lapstore
+   Foco em acessibilidade visual: alto contraste (WCAG AAA), fonte grande,
+   foco bem visível, alvos de toque grandes e respeito às preferências do sistema. */
+
+:root {
+    --fundo: #ffffff;
+    --superficie: #f2f5fa;
+    --texto: #0b0b0b;
+    --texto-suave: #2b2b2b;
+    --borda: #1a1a1a;
+    --primaria: #00287a;
+    --primaria-hover: #001a52;
+    --sobre-primaria: #ffffff;
+    --foco: #ffbf00;
+    --foco-contorno: #000000;
+    --erro: #8a0000;
+    --sucesso: #004d1a;
+    color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --fundo: #000000;
+        --superficie: #121212;
+        --texto: #ffffff;
+        --texto-suave: #e6e6e6;
+        --borda: #ffffff;
+        --primaria: #ffd633;
+        --primaria-hover: #ffe680;
+        --sobre-primaria: #000000;
+        --foco: #ffd633;
+        --foco-contorno: #ffffff;
+        --erro: #ff9a9a;
+        --sucesso: #7dffa1;
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    /* Respeita o tamanho de fonte escolhido pelo usuário no navegador */
+    font-size: 112.5%; /* 18px com base padrão de 16px */
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: Verdana, Tahoma, "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+}
+
+header {
+    background: var(--primaria);
+    color: var(--sobre-primaria);
+    padding: 1.25rem 1rem;
+    text-align: center;
+    border-bottom: 4px solid var(--borda);
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.25;
+}
+
+main {
+    max-width: 38rem;
+    margin: 0 auto;
+    padding: 2rem 1rem 3rem;
+}
+
+form {
+    background: var(--superficie);
+    border: 3px solid var(--borda);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}
+
+.campo-formulario {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--texto);
+}
+
+input {
+    display: block;
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.6rem 0.8rem;
+    font: inherit;
+    color: var(--texto);
+    background: var(--fundo);
+    border: 3px solid var(--borda);
+    border-radius: 0.35rem;
+}
+
+input::placeholder {
+    color: var(--texto-suave);
+    opacity: 1; /* evita placeholder apagado em alguns navegadores */
+}
+
+input:hover {
+    border-style: double;
+}
+
+/* Foco: anel duplo (claro + escuro) visível sobre qualquer fundo */
+input:focus-visible,
+button:focus-visible,
+a:focus-visible {
+    outline: 4px solid var(--foco);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 7px var(--foco-contorno);
+}
+
+/* Estados de validação: cor + borda tracejada + marcador, nunca só cor */
+input:user-valid {
+    border-color: var(--sucesso);
+}
+
+input:user-invalid {
+    border-color: var(--erro);
+    border-style: dashed;
+    background-image: none;
+}
+
+.btn-entrar {
+    margin-top: 2rem;
+}
+
+button {
+    display: block;
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0.75rem 1.5rem;
+    font: inherit;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--sobre-primaria);
+    background: var(--primaria);
+    border: 3px solid var(--borda);
+    border-radius: 0.35rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--primaria-hover);
+    text-decoration: underline;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Telas pequenas / zoom alto */
+@media (max-width: 30rem) {
+    main {
+        padding: 1rem 0.75rem 2rem;
+    }
+
+    form {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+}
+
+/* Usuários que pedem mais contraste */
+@media (prefers-contrast: more) {
+    input,
+    button,
+    form {
+        border-width: 4px;
+    }
+}
+
+/* Usuários sensíveis a movimento */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    button:active {
+        transform: none;
+    }
+}
+
+/* Modo de alto contraste do Windows */
+@media (forced-colors: active) {
+    input:focus-visible,
+    button:focus-visible {
+        outline: 4px solid Highlight;
+        box-shadow: none;
+    }
+
+    button {
+        border-color: ButtonText;
+    }
+}
